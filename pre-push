@@ -1,0 +1,30 @@
+#!/bin/sh
+
+bold=`tput bold`
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+error=${bold}${red}
+success=${bold}${green}
+errorBanner="${error}-------------------------------------------------
+PRE-PUSH FAILED
+-------------------------------------------------\n${reset}"
+successBanner="${success}-------------------------------------------------
+PRE-PUSH OK
+-------------------------------------------------\n${reset}"
+
+# commit hook for JShint
+gulp jshint --prepush=true
+jshintProcess=$?
+
+# now output the stuff
+if [[ $jshintProcess == 1 ]]; then
+    echo "\n${errorBanner}"
+    if [[ $jshintProcess == 1 ]]; then
+        echo "${error}• JSHint errors found.${reset}\n"
+    fi
+    exit 1
+else
+    echo "\n${successBanner}"
+    exit 0
+fi

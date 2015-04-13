@@ -1,0 +1,41 @@
+{
+  "name": "try-json",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "description": "Module that attempts to parse string values of an object into JSON.",
+  "homepage": "https://github.com/NetflixUI/try-json",
+  "author": {
+    "name": "Alex Liu",
+    "email": "aliu@netflix.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NetflixUI/try-json"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "try-json",
+    "json",
+    " nested json"
+  ],
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "gulp": "^3.8.10",
+    "gulp-eslint": "^0.8.0",
+    "gulp-mocha": "^2.0.1",
+    "gulp-symlink": "^2.1.0",
+    "mocha": "^2.2.4"
+  },
+  "scripts": {
+    "test": "mocha -R spec",
+    "githook": "gulp hook",
+    "build": "gulp"
+  },
+  "dependencies": {
+    "lodash": "^3.6.0",
+    "safe-json-parse": "^4.0.0"
+  }
+}
