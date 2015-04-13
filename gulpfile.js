@@ -24,7 +24,7 @@ gulp.task('hook', function() {
     var symlink = require('gulp-symlink');
 
     return  gulp.src('./pre-push')
-                .pipe(symlink('.git/hooks/'));
+                .pipe(symlink('.git/hooks/pre-push', { force: true }));
 });
 
 //------------------------------------------------------------

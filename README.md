@@ -21,7 +21,7 @@ Sometimes JSON comes back with values as a string.
 }
 ```
 
-In some cases, these values are meant to be parsed into JS primitives:
+In some cases, these values are meant to be parsed into primitives or native JS objects:
 
 ```js
 {
@@ -51,6 +51,7 @@ var data = {
 }
 
 var newData = tryJson.parseJson(data);
+
 /*
 => {
     "foo": true,

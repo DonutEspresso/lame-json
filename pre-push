@@ -14,13 +14,13 @@ PRE-PUSH OK
 -------------------------------------------------\n${reset}"
 
 # commit hook for JShint
-gulp jshint --prepush=true
-jshintProcess=$?
+gulp lint --prepush=true
+lintProcess=$?
 
 # now output the stuff
-if [[ $jshintProcess == 1 ]]; then
+if [[ $lintProcess == 1 ]]; then
     echo "\n${errorBanner}"
-    if [[ $jshintProcess == 1 ]]; then
+    if [[ $lintProcess == 1 ]]; then
         echo "${error}• JSHint errors found.${reset}\n"
     fi
     exit 1
