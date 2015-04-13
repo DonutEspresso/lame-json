@@ -1,11 +1,11 @@
-# try-json
+# lame-json
 
 > Module that attempts to parse string values of an object into JSON.
 
 
 ## Getting Started
 
-Install the module with: `npm install try-json`
+Install the module with: `npm install lame-json`
 
 
 ## Documentation
@@ -42,7 +42,7 @@ This module helps you do that.
 Usage is very straight forward:
 
 ```js
-var tryJson = require('try-json');
+var lameJson = require('lame-json');
 var data = {
     "foo": "true",
     "bar": "123",
@@ -50,7 +50,7 @@ var data = {
     }
 }
 
-var newData = tryJson.parseJson(data);
+var newData = lameJson.parseJson(data);
 
 /*
 => {
@@ -67,7 +67,7 @@ If a value cannot be parsed out of the string, the original value is returned:
 
 ```js
 
-var newData = tryJson.parseJson({
+var newData = lameJson.parseJson({
     "foo": "[ 1, 2, 3 }"
 });
 

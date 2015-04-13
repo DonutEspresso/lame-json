@@ -1,23 +1,23 @@
 {
-  "name": "try-json",
+  "name": "lame-json",
   "version": "1.0.0",
   "main": "lib/index.js",
   "description": "Module that attempts to parse string values of an object into JSON.",
-  "homepage": "https://github.com/NetflixUI/try-json",
+  "homepage": "https://github.com/NetflixUI/lame-json",
   "author": {
     "name": "Alex Liu",
     "email": "aliu@netflix.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NetflixUI/try-json"
+    "url": "https://github.com/NetflixUI/lame-json"
   },
   "license": "MIT",
   "files": [
     "lib"
   ],
   "keywords": [
-    "try-json",
+    "lame-json",
     "json",
     " nested json"
   ],

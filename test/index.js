@@ -2,12 +2,12 @@
 'use strict';
 var _ = require('lodash'),
     chai = require('chai'),
-    tryJson = require('../lib/index.js');
+    lameJson = require('../lib/index.js');
 
 var expect = chai.expect;
 
 
-describe('try-json node module.', function() {
+describe('lame-json node module.', function() {
 
     var goodData = {
             foo: true,
@@ -25,7 +25,7 @@ describe('try-json node module.', function() {
         };
 
     it('should return JSON object as is', function() {
-        var newData = tryJson.parseJson(goodData);
+        var newData = lameJson.parseJson(goodData);
 
         _.forEach(_.keys(newData), function(key) {
             expect(goodData[key]).to.be.equal(newData[key]);
@@ -33,7 +33,7 @@ describe('try-json node module.', function() {
     });
 
     it('should return parsed JSON', function() {
-        var newData = tryJson.parseJson(stringData);
+        var newData = lameJson.parseJson(stringData);
 
         expect(newData.foo).to.be.true;
         expect(newData.bar).to.be.equal(123);
@@ -44,7 +44,7 @@ describe('try-json node module.', function() {
     });
 
     it('should not parse JSON with options set to false', function() {
-        var newData = tryJson.parseJson(stringData, {
+        var newData = lameJson.parseJson(stringData, {
             boolean: false,
             integer: false,
             array: false,
