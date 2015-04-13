@@ -50,7 +50,7 @@ var data = {
     }
 }
 
-var newData = tryJson.parse(data);
+var newData = tryJson.parseJson(data);
 /*
 => {
     "foo": true,
@@ -66,7 +66,7 @@ If a value cannot be parsed out of the string, the original value is returned:
 
 ```js
 
-var newData = tryJson.parse({
+var newData = tryJson.parseJson({
     "foo": "[ 1, 2, 3 }"
 });
 
@@ -76,7 +76,7 @@ var newData = tryJson.parse({
 
 ## API
 
-### parse(obj, [options])
+### parseJson(obj, [options])
 * `options.boolean` _{Boolean}_ - If true, parses booleans. Defaults to true.
 * `options.integer` _{Boolean}_ - If true, parses ints. Defaults to true. This only works when the length of the string is also the number of digits in the parsed number.
 * `options.array` _{Boolean}_ - If true, attempts parse arrays. Defaults to true.

@@ -25,7 +25,7 @@ describe('try-json node module.', function() {
         };
 
     it('should return JSON object as is', function() {
-        var newData = tryJson.parse(goodData);
+        var newData = tryJson.parseJson(goodData);
 
         _.forEach(_.keys(newData), function(key) {
             expect(goodData[key]).to.be.equal(newData[key]);
@@ -33,7 +33,7 @@ describe('try-json node module.', function() {
     });
 
     it('should return parsed JSON', function() {
-        var newData = tryJson.parse(stringData);
+        var newData = tryJson.parseJson(stringData);
 
         expect(newData.foo).to.be.true;
         expect(newData.bar).to.be.equal(123);
@@ -44,7 +44,7 @@ describe('try-json node module.', function() {
     });
 
     it('should not parse JSON with options set to false', function() {
-        var newData = tryJson.parse(stringData, {
+        var newData = tryJson.parseJson(stringData, {
             boolean: false,
             integer: false,
             array: false,
