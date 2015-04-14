@@ -104,6 +104,6 @@ npm run build
 
 ## License
 
-Copyright (c) 2015 Netflix.
+Copyright (c) 2015 Alex Liu.
 
 Licensed under the MIT license.

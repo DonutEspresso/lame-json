@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "description": "Module that attempts to parse string values of an object into JSON.",
-  "homepage": "https://github.com/NetflixUI/lame-json",
+  "homepage": "https://github.com/DonutEspresso/lame-json",
   "author": {
     "name": "Alex Liu",
-    "email": "aliu@netflix.com"
+    "email": "donutespress@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NetflixUI/lame-json"
+    "url": "https://github.com/DonutEspresso/lame-json"
   },
   "license": "MIT",
   "files": [
