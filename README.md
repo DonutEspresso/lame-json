@@ -79,7 +79,7 @@ var newData = lameJson.parseJson({
 
 ### parseJson(obj, [options])
 * `options.boolean` _{Boolean}_ - If true, parses booleans. Defaults to true.
-* `options.integer` _{Boolean}_ - If true, parses ints. Defaults to true. This only works when the length of the string is also the number of digits in the parsed number.
+* `options.float` _{Boolean}_ - If true, parses ints and floats. Defaults to true. This only works when the length of the string is also the number of digits in the parsed number.
 * `options.array` _{Boolean}_ - If true, attempts parse arrays. Defaults to true.
 * `options.object` _{Boolean}_ - If true, attempts to parse objects. Defaults to true.
 
