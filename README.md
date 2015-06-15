@@ -1,5 +1,6 @@
 # lame-json
 
+[![NPM Version](https://img.shields.io/npm/v/lame-json.svg)](https://npmjs.org/package/lame-json)
 [![Build Status](https://travis-ci.org/DonutEspresso/lame-json.svg?branch=master)](https://travis-ci.org/DonutEspresso/lame-json)
 [![Dependency Status](https://david-dm.org/DonutEspresso/lame-json.svg)](https://david-dm.org/DonutEspresso/lame-json)
 [![devDependency Status](https://david-dm.org/DonutEspresso/lame-json/dev-status.svg)](https://david-dm.org/DonutEspresso/lame-json#info=devDependencies)
