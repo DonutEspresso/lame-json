@@ -23,17 +23,20 @@
   ],
   "devDependencies": {
     "chai": "^3.0.0",
+    "coveralls": "^2.11.2",
     "gulp": "^3.9.0",
     "gulp-eslint": "^0.13.2",
     "gulp-jscs": "^1.6.0",
     "gulp-symlink": "^2.1.0",
+    "istanbul": "^0.3.15",
     "mocha": "^2.2.5"
   },
   "scripts": {
     "test": "gulp test",
     "githook": "gulp hook",
     "build": "gulp",
-    "prepush": "gulp"
+    "prepush": "gulp",
+    "report": "gulp report"
   },
   "dependencies": {
     "lodash": "^3.9.3",

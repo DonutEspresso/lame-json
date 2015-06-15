@@ -2,6 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/lame-json.svg)](https://npmjs.org/package/lame-json)
 [![Build Status](https://travis-ci.org/DonutEspresso/lame-json.svg?branch=master)](https://travis-ci.org/DonutEspresso/lame-json)
+[![Coverage Status](https://coveralls.io/repos/DonutEspresso/lame-json/badge.svg?branch=master)](https://coveralls.io/r/DonutEspresso/lame-json?branch=master)
 [![Dependency Status](https://david-dm.org/DonutEspresso/lame-json.svg)](https://david-dm.org/DonutEspresso/lame-json)
 [![devDependency Status](https://david-dm.org/DonutEspresso/lame-json/dev-status.svg)](https://david-dm.org/DonutEspresso/lame-json#info=devDependencies)
 [![bitHound Score](https://www.bithound.io/github/DonutEspresso/lame-json/badges/score.svg)](https://www.bithound.io/github/DonutEspresso/lame-json/master)

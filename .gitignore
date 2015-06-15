@@ -19,3 +19,7 @@ npm-debug.log
 Session.vim
 .netrwhist
 *~
+
+# Unit Test Coverage #
+######################
+coverage/
