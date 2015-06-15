@@ -19,7 +19,7 @@
   "keywords": [
     "lame-json",
     "json",
-    " nested json"
+    "nested json"
   ],
   "devDependencies": {
     "chai": "^3.0.0",
