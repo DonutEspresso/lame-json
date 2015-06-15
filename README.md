@@ -1,5 +1,7 @@
 # lame-json
 
+[![Build Status](https://travis-ci.org/DonutEspresso/lame-json.svg?branch=master)](https://travis-ci.org/DonutEspresso/lame-json)
+
 > Module that attempts to parse string values of an object into JSON.
 
 
