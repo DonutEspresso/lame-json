@@ -22,20 +22,21 @@
     " nested json"
   ],
   "devDependencies": {
-    "chai": "^2.2.0",
-    "gulp": "^3.8.10",
-    "gulp-eslint": "^0.8.0",
-    "gulp-mocha": "^2.0.1",
+    "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^0.13.2",
+    "gulp-jscs": "^1.6.0",
     "gulp-symlink": "^2.1.0",
-    "mocha": "^2.2.4"
+    "mocha": "^2.2.5"
   },
   "scripts": {
-    "test": "mocha -R spec",
+    "test": "gulp test",
     "githook": "gulp hook",
-    "build": "gulp"
+    "build": "gulp",
+    "prepush": "gulp"
   },
   "dependencies": {
-    "lodash": "^3.6.0",
+    "lodash": "^3.9.3",
     "safe-json-parse": "^4.0.0"
   }
 }

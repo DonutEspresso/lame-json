@@ -1,8 +1,9 @@
-/*global describe,it*/
 'use strict';
-var _ = require('lodash'),
-    chai = require('chai'),
-    lameJson = require('../lib/index.js');
+
+var _        = require('lodash');
+var chai     = require('chai');
+
+var lameJson = require('../lib/index.js');
 
 var expect = chai.expect;
 
@@ -10,25 +11,25 @@ var expect = chai.expect;
 describe('lame-json node module.', function() {
 
     var goodData = {
-            foo: true,
-            bar: 123,
-            baz: {
-                hello: 'world'
-            },
-            qux: [ 1, 2, 3 ],
-            xul: '1.2.3',
-            zub: 45.66,
-            buz: '1e6'
+        foo: true,
+        bar: 123,
+        baz: {
+            hello: 'world'
         },
-        stringData = {
-            foo: 'true',
-            bar: '123',
-            baz: '{\"hello\": \"world\"}',
-            qux: '[1, 2, 3]',
-            xul: '1.2.3',
-            zub: '45.66',
-            buz: '1e6'
-        };
+        qux: [ 1, 2, 3 ],
+        xul: '1.2.3',
+        zub: 45.66,
+        buz: '1e6'
+    };
+    var stringData = {
+        foo: 'true',
+        bar: '123',
+        baz: '{\"hello\": \"world\"}',
+        qux: '[1, 2, 3]',
+        xul: '1.2.3',
+        zub: '45.66',
+        buz: '1e6'
+    };
 
     it('should return JSON object as is', function() {
         var newData = lameJson.parseJson(goodData);
