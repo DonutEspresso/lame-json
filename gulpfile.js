@@ -43,20 +43,42 @@ gulp.task('hook', function() {
                 .pipe(symlink('.git/hooks/pre-push', { force: true }));
 });
 
+
 //------------------------------------------------------------
 // Run Mocha Tests
 //------------------------------------------------------------
 gulp.task('test', function(callback) {
 
     var spawn = require('child_process').spawn;
-    var proc = spawn('./node_modules/.bin/mocha',
-                        ['-R', 'spec'],
+    var istanbul = spawn('./node_modules/.bin/istanbul',
+                        ['cover', '_mocha'],
                         { stdio: 'inherit'});
 
-    proc.on('exit', function(exitCode) {
+    istanbul.on('exit', function(exitCode) {
         return callback(exitCode);
     });
 });
+
+
+//------------------------------------------------------------
+// Run Coverage
+//------------------------------------------------------------
+gulp.task('report', function(callback) {
+
+    var spawn = require('child_process').spawn;
+    var catProc = spawn('cat', ['./coverage/lcov.info']);
+    var coverallsProc = spawn('./node_modules/.bin/coveralls');
+
+    catProc.stdout.pipe(coverallsProc.stdin);
+    catProc.stderr.pipe(coverallsProc.stdin);
+    coverallsProc.stdout.pipe(process.stdout);
+    coverallsProc.stderr.pipe(process.stderr);
+
+    coverallsProc.on('exit', function(exitCode) {
+        return callback(exitCode);
+    });
+});
+
 
 //------------------------------------------------------------
 // Watch Test folder
