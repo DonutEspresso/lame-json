@@ -1,10 +1,7 @@
 {
     // setup
     "fileExtensions":  [ ".js" ],
-    "excludeFiles":    [
-        "./node_modules/**",
-        "./app/templates/**"
-     ],
+    "excludeFiles":    [ "./node_modules/**" ],
 
     // general rules
     "safeContextKeyword": [ "self" ],
@@ -101,5 +98,6 @@
     "requireSpacesInForStatement": true,
     "requireSpacesInFunction": {
         "beforeOpeningCurlyBrace": true
-    }
+    },
+    "requireSpacesInsideObjectBrackets": "all"
 }

@@ -100,13 +100,12 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 To start contributing, install the git pre-push hooks:
 
 ```sh
-npm run githook
+npm run githooks
 ```
 
-Before committing, lint and test your code using the included gulpfile.js:
+Before committing, lint and test your code:
 ```sh
-npm run test
-npm run build
+npm run prepush
 ```
 
 ## License
