@@ -22,21 +22,18 @@
     "nested json"
   ],
   "devDependencies": {
-    "chai": "^3.0.0",
-    "coveralls": "^2.11.2",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^0.15.0",
-    "gulp-jscs": "^1.6.0",
-    "gulp-symlink": "^2.1.0",
-    "istanbul": "^0.3.15",
-    "mocha": "^2.2.5"
+    "chai": "^3.3.0",
+    "coveralls": "^2.11.4",
+    "eslint": "^1.5.0",
+    "istanbul": "^0.3.20",
+    "jscs": "^2.1.1",
+    "mocha": "^2.3.3",
+    "nsp": "^1.1.0"
   },
   "scripts": {
-    "test": "gulp test",
-    "githook": "gulp hook",
-    "build": "gulp",
-    "prepush": "gulp",
-    "report": "gulp report"
+    "test": "make test",
+    "prepush": "make prepush",
+    "report": "make report-coverage"
   },
   "dependencies": {
     "lodash": "^3.9.3",
