@@ -6,6 +6,7 @@
 [![Dependency Status](https://david-dm.org/DonutEspresso/lame-json.svg)](https://david-dm.org/DonutEspresso/lame-json)
 [![devDependency Status](https://david-dm.org/DonutEspresso/lame-json/dev-status.svg)](https://david-dm.org/DonutEspresso/lame-json#info=devDependencies)
 [![bitHound Score](https://www.bithound.io/github/DonutEspresso/lame-json/badges/score.svg)](https://www.bithound.io/github/DonutEspresso/lame-json/master)
+[![NSP Status](https://img.shields.io/badge/NSP%20status-no%20vulnerabilities-green.svg)](https://travis-ci.org/DonutEspresso/lame-json)
 
 > Module that attempts to parse string values of an object into JSON.
 
