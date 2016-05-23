@@ -23,12 +23,12 @@
   ],
   "devDependencies": {
     "chai": "^3.3.0",
-    "coveralls": "^2.11.4",
-    "eslint": "^1.5.0",
-    "istanbul": "^0.3.21",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.10.2",
+    "istanbul": "^0.4.3",
     "jscs": "^2.1.1",
     "mocha": "^2.3.3",
-    "nsp": "^1.1.0"
+    "nsp": "^2.4.0"
   },
   "scripts": {
     "test": "make test",
@@ -36,7 +36,7 @@
     "report": "make report-coverage"
   },
   "dependencies": {
-    "lodash": "^3.9.3",
+    "lodash": "^3.10.1",
     "safe-json-parse": "^4.0.0"
   }
 }

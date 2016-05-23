@@ -75,7 +75,7 @@ codestyle-fix: node_modules $(ALL_FILES)
 .PHONY: nsp
 nsp: node_modules $(ALL_FILES)
 	@$(NPM) shrinkwrap --dev
-	@($(NSP) audit-shrinkwrap || echo 1) | $(NSP_BADGE)
+	@($(NSP) check) | $(NSP_BADGE)
 	@rm $(SHRINKWRAP)
 
 
