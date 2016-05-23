@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 1.3.1 (5/23/2016)
+
+* Fixed bug where 3 character strings would be parsed as 'NaN'.
+
 ## 1.3 (6/15/2015)
 
 * Fixed bug where missing options flags were not being filled in by defaults.
