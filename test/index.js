@@ -20,7 +20,8 @@ describe('lame-json node module.', function() {
         qux: [ 1, 2, 3 ],
         xul: '1.2.3',
         zub: 45.66,
-        buz: '1e6'
+        buz: '1e6',
+        fooString: 'foo'
     };
     var stringData = {
         foo: 'true',
@@ -30,7 +31,8 @@ describe('lame-json node module.', function() {
         qux: '[1, 2, 3]',
         xul: '1.2.3',
         zub: '45.66',
-        buz: '1e6'
+        buz: '1e6',
+        fooString: 'foo'
     };
 
     it('should return JSON object as is', function() {
