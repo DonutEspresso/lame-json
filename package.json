@@ -27,6 +27,7 @@
     "eslint": "^2.10.2",
     "istanbul": "^0.4.3",
     "jscs": "^2.1.1",
+    "lodash": "^4.13.1",
     "mocha": "^2.3.3",
     "nsp": "^2.4.0"
   },
@@ -36,7 +37,7 @@
     "report": "make report-coverage"
   },
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.13.1",
     "safe-json-parse": "^4.0.0"
   }
 }
