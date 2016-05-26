@@ -1,11 +1,11 @@
 'use strict';
 
+// external modules
 var _        = require('lodash');
-var chai     = require('chai');
+var assert   = require('chai').assert;
 
+// internal files
 var lameJson = require('../lib/index.js');
-
-var expect = chai.expect;
 
 
 describe('lame-json node module.', function() {
@@ -39,23 +39,23 @@ describe('lame-json node module.', function() {
         var newData = lameJson.parseJson(goodData);
 
         _.forEach(_.keys(newData), function(key) {
-            expect(goodData[key]).to.be.equal(newData[key]);
+            assert.equal(goodData[key], newData[key]);
         });
     });
 
     it('should return parsed JSON', function() {
         var newData = lameJson.parseJson(stringData);
 
-        expect(newData.foo).to.be.true;
-        expect(newData.raz).to.be.false;
-        expect(newData.bar).to.be.equal(123);
-        expect(newData.baz.hello).to.be.equal('world');
-        expect(newData.qux[0]).to.be.equal(1);
-        expect(newData.qux[1]).to.be.equal(2);
-        expect(newData.qux[2]).to.be.equal(3);
-        expect(newData.xul).to.be.equal('1.2.3');
-        expect(newData.zub).to.be.equal(45.66);
-        expect(newData.buz).to.be.equal('1e6');
+        assert.equal(newData.foo, true);
+        assert.equal(newData.raz, false);
+        assert.equal(newData.bar, 123);
+        assert.equal(newData.baz.hello, 'world');
+        assert.equal(newData.qux[0], 1);
+        assert.equal(newData.qux[1], 2);
+        assert.equal(newData.qux[2], 3);
+        assert.equal(newData.xul, '1.2.3');
+        assert.equal(newData.zub, 45.66);
+        assert.equal(newData.buz, '1e6');
     });
 
     it('should not parse JSON with options set to false', function() {
@@ -66,25 +66,60 @@ describe('lame-json node module.', function() {
             object: false
         });
 
-        expect(newData).to.be.deep.equal(stringData);
+        assert.deepEqual(newData, stringData);
     });
 
     it('should parse partial JSON', function() {
+
         var newData = lameJson.parseJson(stringData, {
             boolean: false,
             float: false
         });
 
-        expect(newData.foo).to.be.equal('true');
-        expect(newData.raz).to.be.equal('false');
-        expect(newData.bar).to.be.equal('123');
-        expect(newData.baz.hello).to.be.equal('world');
-        expect(newData.qux[0]).to.be.equal(1);
-        expect(newData.qux[1]).to.be.equal(2);
-        expect(newData.qux[2]).to.be.equal(3);
-        expect(newData.xul).to.be.equal('1.2.3');
-        expect(newData.zub).to.be.equal('45.66');
-        expect(newData.buz).to.be.equal('1e6');
+        assert.equal(newData.foo, 'true');
+        assert.equal(newData.raz, 'false');
+        assert.equal(newData.bar, '123');
+        assert.equal(newData.baz.hello, 'world');
+        assert.equal(newData.qux[0], 1);
+        assert.equal(newData.qux[1], 2);
+        assert.equal(newData.qux[2], 3);
+        assert.equal(newData.xul, '1.2.3');
+        assert.equal(newData.zub, '45.66');
+        assert.equal(newData.buz, '1e6');
     });
 
+
+    it('should create instance with persistent options', function() {
+
+        var lame = lameJson({
+            boolean: false,
+            float: false
+        });
+
+        assert.equal(lame.parse('false'), 'false');
+        assert.equal(lame.parse('true'), 'true');
+        assert.equal(lame.parse('1.2.3'), '1.2.3');
+
+        var qux = lame.parse(goodData.qux);
+        assert.equal(qux[0], 1);
+        assert.equal(qux[1], 2);
+        assert.equal(qux[2], 3);
+
+
+        var newData = lame.parseJson(stringData, {
+            boolean: false,
+            float: false
+        });
+
+        assert.equal(newData.foo, 'true');
+        assert.equal(newData.raz, 'false');
+        assert.equal(newData.bar, '123');
+        assert.equal(newData.baz.hello, 'world');
+        assert.equal(newData.qux[0], 1);
+        assert.equal(newData.qux[1], 2);
+        assert.equal(newData.qux[2], 3);
+        assert.equal(newData.xul, '1.2.3');
+        assert.equal(newData.zub, '45.66');
+        assert.equal(newData.buz, '1e6');
+    });
 });
