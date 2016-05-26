@@ -1,4 +1,7 @@
-# CHANGE LOG
+## 1.4.0 (5/25/2016)
+
+* Expose new `parse` method.
+* Expose main export as a factory method to persist options.
 
 ## 1.3.1 (5/23/2016)
 
