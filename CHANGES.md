@@ -1,3 +1,8 @@
+## 1.4.1 (6/13/2018)
+
+* Upgrade lodash@4.17.10
+* Upgrade various dev dependencies.
+
 ## 1.4.0 (5/25/2016)
 
 * Expose new `parse` method.
