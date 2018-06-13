@@ -22,22 +22,14 @@
     "nested json"
   ],
   "devDependencies": {
-    "chai": "^3.3.0",
-    "coveralls": "^2.11.9",
-    "eslint": "^2.10.2",
-    "istanbul": "^0.4.3",
-    "jscs": "^2.1.1",
-    "lodash": "^4.13.1",
-    "mocha": "^2.3.3",
-    "nsp": "^2.4.0"
-  },
-  "scripts": {
-    "test": "make test",
-    "prepush": "make prepush",
-    "report": "make report-coverage"
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
   },
   "dependencies": {
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.10",
     "safe-json-parse": "^4.0.0"
   }
 }
