@@ -5,8 +5,6 @@
 [![Coverage Status](https://coveralls.io/repos/DonutEspresso/lame-json/badge.svg?branch=master)](https://coveralls.io/r/DonutEspresso/lame-json?branch=master)
 [![Dependency Status](https://david-dm.org/DonutEspresso/lame-json.svg)](https://david-dm.org/DonutEspresso/lame-json)
 [![devDependency Status](https://david-dm.org/DonutEspresso/lame-json/dev-status.svg)](https://david-dm.org/DonutEspresso/lame-json#info=devDependencies)
-[![bitHound Score](https://www.bithound.io/github/DonutEspresso/lame-json/badges/score.svg)](https://www.bithound.io/github/DonutEspresso/lame-json/master)
-[![NSP Status](https://img.shields.io/badge/NSP%20status-no%20vulnerabilities-green.svg)](https://travis-ci.org/DonutEspresso/lame-json)
 
 > Module that attempts to parse string values of an object into JSON.
 
@@ -156,16 +154,16 @@ style. Add unit tests for any new or changed functionality.
 To start contributing, install the git pre-push hooks:
 
 ```sh
-npm run githooks
+make githooks
 ```
 
 Before committing, lint and test your code:
 ```sh
-npm run prepush
+make prepush
 ```
 
 ## License
 
-Copyright (c) 2016 Alex Liu.
+Copyright (c) 2018 Alex Liu.
 
 Licensed under the MIT license.
