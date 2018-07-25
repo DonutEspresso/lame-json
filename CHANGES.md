@@ -1,3 +1,9 @@
+## 1.4.2 (7/24/2018)
+
+#### Fix
+
+* test parsed floats for infinity (#12)
+
 ## 1.4.1 (6/13/2018)
 
 * Upgrade lodash@4.17.10
