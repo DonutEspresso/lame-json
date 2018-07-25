@@ -21,7 +21,8 @@ describe('lame-json node module.', function() {
         xul: '1.2.3',
         zub: 45.66,
         buz: '1e6',
-        fooString: 'foo'
+        fooString: 'foo',
+        infinity: '240e1234'
     };
     var stringData = {
         foo: 'true',
@@ -32,7 +33,8 @@ describe('lame-json node module.', function() {
         xul: '1.2.3',
         zub: '45.66',
         buz: '1e6',
-        fooString: 'foo'
+        fooString: 'foo',
+        infinity: '240e1234'
     };
 
     it('should return JSON object as is', function() {
@@ -56,6 +58,8 @@ describe('lame-json node module.', function() {
         assert.equal(newData.xul, '1.2.3');
         assert.equal(newData.zub, 45.66);
         assert.equal(newData.buz, '1e6');
+        assert.equal(newData.infinity, '240e1234');
+        assert.equal(typeof newData.infinity, 'string');
     });
 
     it('should not parse JSON with options set to false', function() {
@@ -86,6 +90,8 @@ describe('lame-json node module.', function() {
         assert.equal(newData.xul, '1.2.3');
         assert.equal(newData.zub, '45.66');
         assert.equal(newData.buz, '1e6');
+        assert.equal(newData.infinity, '240e1234');
+        assert.equal(typeof newData.infinity, 'string');
     });
 
 
@@ -121,5 +127,7 @@ describe('lame-json node module.', function() {
         assert.equal(newData.xul, '1.2.3');
         assert.equal(newData.zub, '45.66');
         assert.equal(newData.buz, '1e6');
+        assert.equal(newData.infinity, '240e1234');
+        assert.equal(typeof newData.infinity, 'string');
     });
 });
