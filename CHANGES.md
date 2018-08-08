@@ -1,3 +1,11 @@
+## 1.5.0 (8/07/2018)
+
+#### New
+
+* new option to enable parsing of exponential numbers (#13). this also fixes an
+  outstanding bug where exponential numbers were being parsed accidentally.
+
+
 ## 1.4.2 (7/24/2018)
 
 #### Fix
