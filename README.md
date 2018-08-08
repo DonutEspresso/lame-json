@@ -54,7 +54,6 @@ var data = {
     "foo": "true",
     "bar": "123",
     "baz": "{\"hello\":\"world\"}"
-    }
 }
 
 var newData = lameJson.parseJson(data);
@@ -127,7 +126,8 @@ you only need to use the functions once or twice, you can use the static
 functions documented below.
 
 * `options.boolean` _{Boolean}_ - If true, parses booleans. Defaults to true.
-* `options.float` _{Boolean}_ - If true, parses ints and floats. Defaults to true. This only works when the length of the string is also the number of digits in the parsed number.
+* `options.float` _{Boolean}_ - If true, parses ints and floats. Defaults to true. This only works when the full string is used during parsing (e.g `123foo` would be ignored)
+* `options.exponential` _{Boolean}_ - If true, parses exponential numbers such as `2e2`. Defaults to false. This only works when the full string is used during parsing (e.g `2e2foo` would be ignored)
 * `options.array` _{Boolean}_ - If true, attempts parse arrays. Defaults to true.
 * `options.object` _{Boolean}_ - If true, attempts to parse objects. Defaults to true.
 
@@ -135,7 +135,7 @@ __Returns:__ _{Object}_ a parser object with two methods, parseJson and parse
 
 ### lameJson.parseJson(obj [, options])
 Try to parse string values out of JSON values. You can use this in place of
-`JSON.parse()`. Optionsa re the same as above.
+`JSON.parse()`. Options are the same as above.
 
 __Returns:__ _{Object}_ a new object with possibly parsed values.
 

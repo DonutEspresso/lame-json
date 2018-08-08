@@ -22,7 +22,11 @@ describe('lame-json node module.', function() {
         zub: 45.66,
         buz: '1e6',
         fooString: 'foo',
-        infinity: '240e1234'
+        infinity: '240e1234',
+        exponential: '2e2',
+        negative: -2,
+        negativeFloat: -2.2,
+        badNumberInExponent: '53.3.5e3'
     };
     var stringData = {
         foo: 'true',
@@ -34,32 +38,53 @@ describe('lame-json node module.', function() {
         zub: '45.66',
         buz: '1e6',
         fooString: 'foo',
-        infinity: '240e1234'
+        infinity: '240e1234',
+        exponential: '2e2',
+        notANumber: '.',
+        leadingDot: '.22',
+        endingDot: '22.',
+        positiveExponent: '2e+2',
+        negativeExponent: '2e-2',
+        negative: '-2',
+        negativeFloat: '-2.2',
+        negativeNumberWithExponent: '-2e2',
+        badNumberInExponent: '53.3.5e3',
+        exponentWithoutNumber: 'e2'
     };
 
     it('should return JSON object as is', function() {
         var newData = lameJson.parseJson(goodData);
 
         _.forEach(_.keys(newData), function(key) {
-            assert.equal(goodData[key], newData[key]);
+            assert.strictEqual(newData[key], goodData[key]);
         });
     });
 
     it('should return parsed JSON', function() {
         var newData = lameJson.parseJson(stringData);
 
-        assert.equal(newData.foo, true);
-        assert.equal(newData.raz, false);
-        assert.equal(newData.bar, 123);
-        assert.equal(newData.baz.hello, 'world');
-        assert.equal(newData.qux[0], 1);
-        assert.equal(newData.qux[1], 2);
-        assert.equal(newData.qux[2], 3);
-        assert.equal(newData.xul, '1.2.3');
-        assert.equal(newData.zub, 45.66);
-        assert.equal(newData.buz, '1e6');
-        assert.equal(newData.infinity, '240e1234');
-        assert.equal(typeof newData.infinity, 'string');
+        assert.strictEqual(newData.foo, true);
+        assert.strictEqual(newData.raz, false);
+        assert.strictEqual(newData.bar, 123);
+        assert.strictEqual(newData.baz.hello, 'world');
+        assert.strictEqual(newData.qux[0], 1);
+        assert.strictEqual(newData.qux[1], 2);
+        assert.strictEqual(newData.qux[2], 3);
+        assert.strictEqual(newData.xul, '1.2.3');
+        assert.strictEqual(newData.zub, 45.66);
+        assert.strictEqual(newData.buz, '1e6');
+        assert.strictEqual(newData.infinity, '240e1234');
+        assert.strictEqual(newData.exponential, '2e2');
+        assert.strictEqual(newData.notANumber, '.');
+        assert.strictEqual(newData.leadingDot, 0.22);
+        assert.strictEqual(newData.endingDot, 22);
+        assert.strictEqual(newData.positiveExponent, '2e+2');
+        assert.strictEqual(newData.negativeExponent, '2e-2');
+        assert.strictEqual(newData.negative, -2);
+        assert.strictEqual(newData.negativeFloat, -2.2);
+        assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
+        assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
+        assert.strictEqual(newData.exponentWithoutNumber, 'e2');
     });
 
     it('should not parse JSON with options set to false', function() {
@@ -73,6 +98,25 @@ describe('lame-json node module.', function() {
         assert.deepEqual(newData, stringData);
     });
 
+    it('should parse exponential strings when option set to true', function() {
+        var newData = lameJson.parseJson(stringData, {
+            exponential: true
+        });
+
+        assert.strictEqual(newData.buz, 1e6);
+        assert.strictEqual(newData.exponential, 2e2);
+        assert.strictEqual(newData.notANumber, '.');
+        assert.strictEqual(newData.leadingDot, 0.22);
+        assert.strictEqual(newData.endingDot, 22);
+        assert.strictEqual(newData.positiveExponent, 2e+2);
+        assert.strictEqual(newData.negativeExponent, 2e-2);
+        assert.strictEqual(newData.negative, -2);
+        assert.strictEqual(newData.negativeFloat, -2.2);
+        assert.strictEqual(newData.negativeNumberWithExponent, -200);
+        assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
+        assert.strictEqual(newData.exponentWithoutNumber, 'e2');
+    });
+
     it('should parse partial JSON', function() {
 
         var newData = lameJson.parseJson(stringData, {
@@ -80,18 +124,28 @@ describe('lame-json node module.', function() {
             float: false
         });
 
-        assert.equal(newData.foo, 'true');
-        assert.equal(newData.raz, 'false');
-        assert.equal(newData.bar, '123');
-        assert.equal(newData.baz.hello, 'world');
-        assert.equal(newData.qux[0], 1);
-        assert.equal(newData.qux[1], 2);
-        assert.equal(newData.qux[2], 3);
-        assert.equal(newData.xul, '1.2.3');
-        assert.equal(newData.zub, '45.66');
-        assert.equal(newData.buz, '1e6');
-        assert.equal(newData.infinity, '240e1234');
-        assert.equal(typeof newData.infinity, 'string');
+        assert.strictEqual(newData.foo, 'true');
+        assert.strictEqual(newData.raz, 'false');
+        assert.strictEqual(newData.bar, '123');
+        assert.strictEqual(newData.baz.hello, 'world');
+        assert.strictEqual(newData.qux[0], 1);
+        assert.strictEqual(newData.qux[1], 2);
+        assert.strictEqual(newData.qux[2], 3);
+        assert.strictEqual(newData.xul, '1.2.3');
+        assert.strictEqual(newData.zub, '45.66');
+        assert.strictEqual(newData.buz, '1e6');
+        assert.strictEqual(newData.infinity, '240e1234');
+        assert.strictEqual(newData.exponential, '2e2');
+        assert.strictEqual(newData.notANumber, '.');
+        assert.strictEqual(newData.leadingDot, '.22');
+        assert.strictEqual(newData.endingDot, '22.');
+        assert.strictEqual(newData.positiveExponent, '2e+2');
+        assert.strictEqual(newData.negativeExponent, '2e-2');
+        assert.strictEqual(newData.negative, '-2');
+        assert.strictEqual(newData.negativeFloat, '-2.2');
+        assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
+        assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
+        assert.strictEqual(newData.exponentWithoutNumber, 'e2');
     });
 
 
@@ -102,14 +156,14 @@ describe('lame-json node module.', function() {
             float: false
         });
 
-        assert.equal(lame.parse('false'), 'false');
-        assert.equal(lame.parse('true'), 'true');
-        assert.equal(lame.parse('1.2.3'), '1.2.3');
+        assert.strictEqual(lame.parse('false'), 'false');
+        assert.strictEqual(lame.parse('true'), 'true');
+        assert.strictEqual(lame.parse('1.2.3'), '1.2.3');
 
         var qux = lame.parse(goodData.qux);
-        assert.equal(qux[0], 1);
-        assert.equal(qux[1], 2);
-        assert.equal(qux[2], 3);
+        assert.strictEqual(qux[0], 1);
+        assert.strictEqual(qux[1], 2);
+        assert.strictEqual(qux[2], 3);
 
 
         var newData = lame.parseJson(stringData, {
@@ -117,17 +171,27 @@ describe('lame-json node module.', function() {
             float: false
         });
 
-        assert.equal(newData.foo, 'true');
-        assert.equal(newData.raz, 'false');
-        assert.equal(newData.bar, '123');
-        assert.equal(newData.baz.hello, 'world');
-        assert.equal(newData.qux[0], 1);
-        assert.equal(newData.qux[1], 2);
-        assert.equal(newData.qux[2], 3);
-        assert.equal(newData.xul, '1.2.3');
-        assert.equal(newData.zub, '45.66');
-        assert.equal(newData.buz, '1e6');
-        assert.equal(newData.infinity, '240e1234');
-        assert.equal(typeof newData.infinity, 'string');
+        assert.strictEqual(newData.foo, 'true');
+        assert.strictEqual(newData.raz, 'false');
+        assert.strictEqual(newData.bar, '123');
+        assert.strictEqual(newData.baz.hello, 'world');
+        assert.strictEqual(newData.qux[0], 1);
+        assert.strictEqual(newData.qux[1], 2);
+        assert.strictEqual(newData.qux[2], 3);
+        assert.strictEqual(newData.xul, '1.2.3');
+        assert.strictEqual(newData.zub, '45.66');
+        assert.strictEqual(newData.buz, '1e6');
+        assert.strictEqual(newData.infinity, '240e1234');
+        assert.strictEqual(newData.exponential, '2e2');
+        assert.strictEqual(newData.notANumber, '.');
+        assert.strictEqual(newData.leadingDot, '.22');
+        assert.strictEqual(newData.endingDot, '22.');
+        assert.strictEqual(newData.positiveExponent, '2e+2');
+        assert.strictEqual(newData.negativeExponent, '2e-2');
+        assert.strictEqual(newData.negative, '-2');
+        assert.strictEqual(newData.negativeFloat, '-2.2');
+        assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
+        assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
+        assert.strictEqual(newData.exponentWithoutNumber, 'e2');
     });
 });
