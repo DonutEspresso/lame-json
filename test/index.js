@@ -26,7 +26,8 @@ describe('lame-json node module.', function() {
         exponential: '2e2',
         negative: -2,
         negativeFloat: -2.2,
-        badNumberInExponent: '53.3.5e3'
+        badNumberInExponent: '53.3.5e3',
+        emptyString: ''
     };
     var stringData = {
         foo: 'true',
@@ -49,7 +50,8 @@ describe('lame-json node module.', function() {
         negativeFloat: '-2.2',
         negativeNumberWithExponent: '-2e2',
         badNumberInExponent: '53.3.5e3',
-        exponentWithoutNumber: 'e2'
+        exponentWithoutNumber: 'e2',
+        emptyString: ''
     };
 
     it('should return JSON object as is', function() {
@@ -85,6 +87,7 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
         assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
         assert.strictEqual(newData.exponentWithoutNumber, 'e2');
+        assert.strictEqual(newData.emptyString, '');
     });
 
     it('should not parse JSON with options set to false', function() {
@@ -115,6 +118,7 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.negativeNumberWithExponent, -200);
         assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
         assert.strictEqual(newData.exponentWithoutNumber, 'e2');
+        assert.strictEqual(newData.emptyString, '');
     });
 
     it('should parse partial JSON', function() {
@@ -146,6 +150,7 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
         assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
         assert.strictEqual(newData.exponentWithoutNumber, 'e2');
+        assert.strictEqual(newData.emptyString, '');
     });
 
 
@@ -193,5 +198,6 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.negativeNumberWithExponent, '-2e2');
         assert.strictEqual(newData.badNumberInExponent, '53.3.5e3');
         assert.strictEqual(newData.exponentWithoutNumber, 'e2');
+        assert.strictEqual(newData.emptyString, '');
     });
 });
