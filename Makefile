@@ -29,7 +29,8 @@ ESLINT		:= $(NODE_BIN)/eslint
 MOCHA		:= $(NODE_BIN)/mocha
 NYC		:= $(NODE_BIN)/nyc
 COVERALLS	:= $(NODE_BIN)/coveralls
-CHANGELOG	:= $(TOOLS)/changelog.js
+UNLEASH		:= $(NODE_BIN)/unleash
+CONVENTIONAL_RECOMMENDED_BUMP := $(NODE_BIN)/conventional-recommended-bump
 
 
 #
@@ -69,14 +70,14 @@ githooks: $(GITHOOKS) ## Symlink githooks
 	)
 
 
-.PHONY: changelog
-changelog: $(NODE_MODULES) $(CHANGELOG) ## Run changelog
-	@$(CHANGELOG) generate
+.PHONY: release-dry
+release-dry: $(NODE_MODULES)
+	$(UNLEASH) -d --type=$(shell $(CONVENTIONAL_RECOMMENDED_BUMP) -p angular)
 
 
 .PHONY: release
-release: $(NODE_MODULES) $(CHANGELOG) ## Create a release
-	@$(CHANGELOG) release
+release: $(NODE_MODULES) ## Versions, tags, and updates changelog based on commit messages
+	$(UNLEASH) --type=$(shell $(CONVENTIONAL_RECOMMENDED_BUMP) -p angular)
 
 
 .PHONY: lint
