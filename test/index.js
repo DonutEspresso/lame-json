@@ -1,23 +1,21 @@
 'use strict';
 
 // external modules
-var _        = require('lodash');
-var assert   = require('chai').assert;
+const _ = require('lodash');
+const assert = require('chai').assert;
 
 // internal files
-var lameJson = require('../lib/index.js');
-
+const lameJson = require('../lib/index.js');
 
 describe('lame-json node module.', function() {
-
-    var goodData = {
+    const goodData = {
         foo: true,
         raz: false,
         bar: 123,
         baz: {
             hello: 'world'
         },
-        qux: [ 1, 2, 3 ],
+        qux: [1, 2, 3],
         xul: '1.2.3',
         zub: 45.66,
         buz: '1e6',
@@ -29,11 +27,11 @@ describe('lame-json node module.', function() {
         badNumberInExponent: '53.3.5e3',
         emptyString: ''
     };
-    var stringData = {
+    const stringData = {
         foo: 'true',
         raz: 'false',
         bar: '123',
-        baz: '{\"hello\": \"world\"}',
+        baz: '{"hello": "world"}',
         qux: '[1, 2, 3]',
         xul: '1.2.3',
         zub: '45.66',
@@ -55,7 +53,7 @@ describe('lame-json node module.', function() {
     };
 
     it('should return JSON object as is', function() {
-        var newData = lameJson.parseJson(goodData);
+        const newData = lameJson.parseJson(goodData);
 
         _.forEach(_.keys(newData), function(key) {
             assert.strictEqual(newData[key], goodData[key]);
@@ -63,7 +61,7 @@ describe('lame-json node module.', function() {
     });
 
     it('should return parsed JSON', function() {
-        var newData = lameJson.parseJson(stringData);
+        const newData = lameJson.parseJson(stringData);
 
         assert.strictEqual(newData.foo, true);
         assert.strictEqual(newData.raz, false);
@@ -91,7 +89,7 @@ describe('lame-json node module.', function() {
     });
 
     it('should not parse JSON with options set to false', function() {
-        var newData = lameJson.parseJson(stringData, {
+        const newData = lameJson.parseJson(stringData, {
             boolean: false,
             float: false,
             array: false,
@@ -102,7 +100,7 @@ describe('lame-json node module.', function() {
     });
 
     it('should parse exponential strings when option set to true', function() {
-        var newData = lameJson.parseJson(stringData, {
+        const newData = lameJson.parseJson(stringData, {
             exponential: true
         });
 
@@ -111,7 +109,7 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.notANumber, '.');
         assert.strictEqual(newData.leadingDot, 0.22);
         assert.strictEqual(newData.endingDot, 22);
-        assert.strictEqual(newData.positiveExponent, 2e+2);
+        assert.strictEqual(newData.positiveExponent, 2e2);
         assert.strictEqual(newData.negativeExponent, 2e-2);
         assert.strictEqual(newData.negative, -2);
         assert.strictEqual(newData.negativeFloat, -2.2);
@@ -122,8 +120,7 @@ describe('lame-json node module.', function() {
     });
 
     it('should parse partial JSON', function() {
-
-        var newData = lameJson.parseJson(stringData, {
+        const newData = lameJson.parseJson(stringData, {
             boolean: false,
             float: false
         });
@@ -153,10 +150,8 @@ describe('lame-json node module.', function() {
         assert.strictEqual(newData.emptyString, '');
     });
 
-
     it('should create instance with persistent options', function() {
-
-        var lame = lameJson({
+        const lame = lameJson({
             boolean: false,
             float: false
         });
@@ -165,13 +160,12 @@ describe('lame-json node module.', function() {
         assert.strictEqual(lame.parse('true'), 'true');
         assert.strictEqual(lame.parse('1.2.3'), '1.2.3');
 
-        var qux = lame.parse(goodData.qux);
+        const qux = lame.parse(goodData.qux);
         assert.strictEqual(qux[0], 1);
         assert.strictEqual(qux[1], 2);
         assert.strictEqual(qux[2], 3);
 
-
-        var newData = lame.parseJson(stringData, {
+        const newData = lame.parseJson(stringData, {
             boolean: false,
             float: false
         });
